@@ -1,0 +1,35 @@
+def input_graph():
+    graph = {}
+    n = int(input("Enter the number of nodes: "))
+
+    for _ in range(n):
+        node = input("Enter the node: ")
+        neighbors_str = input("Enter the neighbors (comma-separated): ") 
+        neighbors = neighbors_str.split(',') if neighbors_str else [] 
+        graph[node] = neighbors
+
+    return graph
+
+# Function for BFS
+def bfs(visited, graph, node): 
+    visited.append(node) 
+    queue.append(node)
+
+    while queue:
+        m = queue.pop(0) 
+        print(m, end=" ")
+
+        for neighbour in graph[m]:
+            if neighbour not in visited: 
+                visited.append(neighbour) 
+                queue.append(neighbour)
+
+# Driver Code
+graph = input_graph()
+visited = [] # List for visited nodes. 
+queue = [] # Initialize a queue
+
+start_node = input("Enter the starting node for BFS: ")
+
+print("Following is the Breadth-First Search") 
+bfs(visited, graph, start_node)
